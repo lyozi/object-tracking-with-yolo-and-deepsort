@@ -13,9 +13,8 @@ cap = cv2.VideoCapture(video_path)
 
 ret, frame = cap.read()
 
-# cap_out = cv2.VideoWriter(video_out_path, cv2.VideoWriter_fourcc(*'MP4V'), cap.get(cv2.CAP_PROP_FPS),
-# (frame.shape[1], frame.shape[0]))
-
+cap_out = cv2.VideoWriter(video_out_path, cv2.VideoWriter_fourcc(*'MP4V'), cap.get(cv2.CAP_PROP_FPS),
+                          (frame.shape[1], frame.shape[0]))
 
 model = YOLO('yolov8n.pt')
 
@@ -49,10 +48,18 @@ while ret:
 
             cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (colors[track_id % len(colors)]), 2)
 
-    cv2.imshow('frame', frame)
-    cv2.waitKey(25)
+            text_position = (int(x1), int(y2) + 15)
+            text_color = (0, 0, 0)
+            font_scale = 0.5
+            thickness = 1
 
-    # cap_out.write(frame)
+            cv2.putText(frame, f'ID: {track_id}', text_position, cv2.FONT_HERSHEY_SIMPLEX, font_scale, text_color,
+                        thickness, cv2.LINE_AA)
+
+    # cv2.imshow('frame', frame)
+    # cv2.waitKey(25)
+
+    cap_out.write(frame)
 
     ret, frame = cap.read()
 

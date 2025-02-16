@@ -2,4 +2,5 @@
 ## https://www.youtube.com/watch?v=jIRRuGN0j5E
 
 # End result:
-![out-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/d7f34957-056d-4943-b2f7-1114ed1fdff1)
+![out-ezgif com-video-to-gif-converter (2)](https://github.com/user-attachments/assets/c36052b8-1cee-41eb-bab7-75187d353d8e)
+
